@@ -3,7 +3,7 @@
 $scriptStartTime = Get-Date
 
 # Define the path to the directory
-$directoryPath = "C:\Users\njs361\OneDrive - Newcastle University\DP\DP Format experiments"
+$directoryPath = "insert own file path"
 
 # Initialize a counter for deleted files
 $global:deletedFilesCount = 0
