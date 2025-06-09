@@ -1,0 +1,11 @@
+Before you even get into the powershell you must have all your trust settings turned off for each office application. 
+Ensure that your organisation doesn't have ransomware settings on which makes them think that you are a bot. You will be locked out of your account, but that is rectifiable. 
+For this its best to try and contain all the key activities you want yur script to do in one function at the top. The Convert-WordToPDF function for example (opens word; suppresses read only notifications, catches errors, and then quits word each time)
+I found word had to be closed each time and the 'COM Object' released otherwise it used up all the cpu memory with bits of word hanging around - presume this is the com object. 
+I've also found that stating the function at the beginning is better than having lots of little functions interpsrsed through the script as there were a few confusing loops happening otherwise. 
+
+And now for the main script....
+The creation of the csv file is where the failure log is written too. This only happens on the completion of the script, which is why there is so much 'Write-Output' informing you of progress, successful conversions, errors, and then the 30 second skip function, so that your script actually finishes. The other option is for failed convversions to be written to the csv immediately as they happen rather than at the end, but I haven't gotten around to doing that yet. 
+Having the -Recurse and -Force commands after Get-ChildItem means that the script loops through sub-directories in folders until the end (-Recurse) and also takes into account hidden files (-Force). 
+In an attempt to preserve some sort of archival value I've written in a block for copying in the time and date stamps from the original file. It seems to work for the last modified time but not creation. However, last modified seems to be the one that is most used for cataloguing so I've just accepted this for now. 
+If you want addiitonal documentation for scripts in addition to the error log csv, you can also use Start-Transcript; Stop-Transcript to bookend the script and it does what is says on the tin in the form of a .txt file. 
