@@ -4,7 +4,7 @@ $scriptStartTime = Get-Date
 
 
 # Define the path to the directory
-$directoryPath = "C:\Users\njs361\OneDrive - Newcastle University\DP\DP Format experiments"
+$directoryPath = "insert file path"
 
 # Define the file extensions to delete
 $fileExtensions = @(".2", ".150", ".160", ".07", ".07sgm edits", ".19dec03", ".3ds", ".ac$", ".ai", ".avi", ".bak", ".bk1", ".bk2", ".bk3", ".bk4", ".bmp", ".bp2", ".bsw", ".bup")  # Add your desired file formats here
