@@ -44,16 +44,16 @@ function Convert-WordToPDF {
 }
 
 # Main script starts here
-$directory = "\\campus\dept\librarydigitalworking\Born Digital Working Files\Born Digital Transformations\JemmaTests\DUFF ONES"
+$directory = "\\insert your file paths"
 
 # Create a CSV file with headers if it doesn't exist
-if (-not (Test-Path "\\campus\dept\librarydigitalworking\Born Digital Working Files\Born Digital Transformations\FailedJemmaTests.csv")) {
+if (-not (Test-Path "\\insert your file paths.csv")) {
     $header = [PSCustomObject]@{
         FileName    = "File Name"
         FileType    = "File Type"
         FailureTime = "Failure Time"
     }
-    $header | Export-Csv -Path "\\campus\dept\librarydigitalworking\Born Digital Working Files\Born Digital Transformations\FailedJemmaTests.csv" -NoTypeInformation
+    $header | Export-Csv -Path "\\insert your file paths.csv" -NoTypeInformation
 }
 
 # Get all files in the directory
@@ -86,7 +86,7 @@ foreach ($file in $files) {
 # Write failure log to CSV
 if ($failureLog.Count -gt 0) {
     Write-Host "Failures detected: $($failureLog.Count)"
-    $failureLog | Export-Csv -Path "\\campus\dept\librarydigitalworking\Born Digital Working Files\Born Digital Transformations\FailedJemmaTests.csv" -NoTypeInformation -Append
+    $failureLog | Export-Csv -Path "\\insert your file paths.csv" -NoTypeInformation -Append
     Write-Host "Failure details have been written to error file"
 } else { Write-Host "No failures detected."
 }
