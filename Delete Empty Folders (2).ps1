@@ -3,7 +3,7 @@
 $scriptStartTime = Get-Date
 
 # Define the path to the directory
-$directoryPath = "C:\Users\njs361\OneDrive - Newcastle University\DP\DP Format experiments"
+$directoryPath = "insert own path"
 
 # Get all directories within the specified path, including hidden ones
 $directories = Get-ChildItem -Path $directoryPath -Recurse -Directory -Force -ErrorAction SilentlyContinue
